@@ -9,7 +9,7 @@ const MenuOption = styled(MenuItem)`
     color: #4A4A4A;
 `;
 
-const HeaderMenu = () => {
+const HeaderMenu = ({setOpenDrawer}) => {
     const [open, setOpen] = useState(false);
 
     const handleClose = () => {
@@ -38,7 +38,7 @@ const HeaderMenu = () => {
                  horizontal: 'right',
                 }}
       >
-        <MenuOption  onClick={handleClose}>Profile</MenuOption>
+        <MenuOption  onClick={() => { handleClose(); setOpenDrawer(true)}}>Profile</MenuOption>
        
       </Menu>
     </>
