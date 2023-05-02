@@ -2,7 +2,8 @@ import React from 'react';
 import { useContext, useState } from 'react';
 import { AccountContext } from '../../../context/AccountProvider';
 import { Box, styled } from '@mui/material';
-import { Chat as MessageIcon , MoreVert } from '@mui/icons-material';
+import { Chat as MessageIcon  } from '@mui/icons-material';
+import HeaderMenu from './HeaderMenu';
 
 const Component = styled(Box)`
     height: 44px;
@@ -40,7 +41,7 @@ const Header = () => {
         <Image src={account.picture}  />
         <Wrapper>
                     <MessageIcon />
-                   <MoreVert/>
+                   <HeaderMenu/>
                 </Wrapper>
     </Component>
    
