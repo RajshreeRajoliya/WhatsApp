@@ -1,7 +1,7 @@
 import React from 'react'
 import { Dialog, Typography , Box , List , ListItem , styled } from '@mui/material'
 import { qrCodeImage } from '../../constants/data'
-
+import {GoogleLogin} from '@react-oauth/google';
 
 const dialogStyle = {
     height : '96%',
@@ -45,7 +45,15 @@ const StyledList = styled(List)`
 }    
 `
 
+
+
 const LoginDialog = () => {
+   const onLoginSuccess=()=>{
+
+   } 
+   const onLoginError=()=>{
+    
+   } 
   return (
    <Dialog
    open={true}
@@ -63,6 +71,13 @@ const LoginDialog = () => {
 
     <Box>
     <QRCode src={qrCodeImage} alt='qrCode'/>
+<Box>
+    <GoogleLogin
+        onSuccess={onLoginSuccess}
+        onError={onLoginError}
+    />
+</Box>
+   
     </Box>
 </Component>
    </Dialog>
