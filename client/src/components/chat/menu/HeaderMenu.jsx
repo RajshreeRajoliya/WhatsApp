@@ -5,20 +5,24 @@ import { useState} from 'react';
 
 const HeaderMenu = () => {
     const [open, setOpen] = useState(false);
-    
+
     const handleClose = () => {
         setOpen(null);
     };
 
+    const handleClick = (event) => {
+        setOpen(event.currentTarget);
+    };   
   return (
     <>
-      <MoreVert/>
+      <MoreVert onClick={handleClick}/>
       <Menu
       
         anchorEl={open}
         keepMounted
         open={open}
         onClose={handleClose}
+        getContentAnchorEl={null}
         MenuListProps={{
           'aria-labelledby': 'basic-button',
         }}
