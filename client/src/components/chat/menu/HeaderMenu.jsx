@@ -18,14 +18,19 @@ const HeaderMenu = () => {
       <MoreVert onClick={handleClick}/>
       <Menu
       
-        anchorEl={open}
-        keepMounted
-        open={open}
-        onClose={handleClose}
+      anchorEl={open}
+              keepMounted
+             open={open}
+            onClose={handleClose}
         getContentAnchorEl={null}
-        MenuListProps={{
-          'aria-labelledby': 'basic-button',
-        }}
+            anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'center',
+                }}
+                transformOrigin={{
+                    vertical: 'top',
+                 horizontal: 'right',
+                }}
       >
         <MenuItem onClick={handleClose}>Profile</MenuItem>
         <MenuItem onClick={handleClose}>My account</MenuItem>
