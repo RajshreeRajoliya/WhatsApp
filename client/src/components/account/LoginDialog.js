@@ -2,7 +2,9 @@ import React from 'react'
 import { Dialog, Typography , Box , List , ListItem , styled } from '@mui/material'
 import { qrCodeImage } from '../../constants/data'
 import {GoogleLogin} from '@react-oauth/google';
-import jwt_decode from 'jwt-decode'
+import jwt_decode from 'jwt-decode';
+import { AccountContext } from '../../context/AccountProvider';
+import { useContext } from 'react';
 
 const dialogStyle = {
     height : '96%',
@@ -47,9 +49,13 @@ const StyledList = styled(List)`
 `
 
 const LoginDialog = () => {
+
+    const { setAccount } = useContext(AccountContext);
+
    const onLoginSuccess=(res)=>{
     const decoded = jwt_decode(res.credential)
-       console.log(decoded);
+    setAccount(decoded);
+    
    } 
    const onLoginError=(res)=>{
   console.log('Login failed' , res);
@@ -59,6 +65,7 @@ const LoginDialog = () => {
    <Dialog
    open={true}
    PaperProps={{sx : dialogStyle}}
+   hideBackdrop = {true}
    >
 <Component>
     <Container>
