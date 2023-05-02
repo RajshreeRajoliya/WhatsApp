@@ -45,14 +45,12 @@ const StyledList = styled(List)`
 }    
 `
 
-
-
 const LoginDialog = () => {
-   const onLoginSuccess=()=>{
-
+   const onLoginSuccess=(res)=>{
+console.log(res)
    } 
-   const onLoginError=()=>{
-    
+   const onLoginError=(res)=>{
+    console.log('Login failed' , res)
    } 
   return (
    <Dialog
@@ -69,9 +67,9 @@ const LoginDialog = () => {
         </StyledList>
     </Container>
 
-    <Box>
+    <Box style = {{position : 'relative'}}>
     <QRCode src={qrCodeImage} alt='qrCode'/>
-<Box>
+<Box style = {{position : 'absolute' , top : '50%' , transform : 'translateX(25%)'}}>
     <GoogleLogin
         onSuccess={onLoginSuccess}
         onError={onLoginError}
