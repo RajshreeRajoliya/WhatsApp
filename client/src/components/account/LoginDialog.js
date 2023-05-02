@@ -2,6 +2,7 @@ import React from 'react'
 import { Dialog, Typography , Box , List , ListItem , styled } from '@mui/material'
 import { qrCodeImage } from '../../constants/data'
 import {GoogleLogin} from '@react-oauth/google';
+import jwt_decode from 'jwt-decode'
 
 const dialogStyle = {
     height : '96%',
@@ -47,10 +48,12 @@ const StyledList = styled(List)`
 
 const LoginDialog = () => {
    const onLoginSuccess=(res)=>{
-console.log(res)
+    const decoded = jwt_decode(res.credential)
+       console.log(decoded);
    } 
    const onLoginError=(res)=>{
-    console.log('Login failed' , res)
+  console.log('Login failed' , res);
+ 
    } 
   return (
    <Dialog
