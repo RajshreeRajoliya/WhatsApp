@@ -3,13 +3,32 @@ import { styled, Drawer, Box, Typography } from '@mui/material';
 import { ArrowBack } from '@mui/icons-material';
 
 const drawerStyle = {
-    left: 20,
+   left: 20,
     top: 17,
-    height: '95%',
+   height: '95%',
     width: '30%',
     boxShadow: 'none'
 }
 
+
+const Header = styled(Box)`
+  background: #008069;
+    height: 107px;
+  color: #FFFFFF;
+   display: flex;
+  & > svg, & > p {
+    margin-top: auto;
+    padding: 15px;
+    font-weight: 600;
+`
+
+const Text = styled(Typography)`
+    font-size: 18px;
+`
+const Component = styled(Box)`
+  background: #ededed;
+  height: 85%;
+`;
 const InfoDrawer = ({ open, setOpen}) => {
     const handleClose = () => {
         setOpen(false);
@@ -22,13 +41,13 @@ const InfoDrawer = ({ open, setOpen}) => {
     style={{ zIndex: 1500 }}
 >
    
-   <Box>
+   <Header>
    <ArrowBack onClick={() => setOpen(false)} />
-   <Typography>Profile</Typography>
-   </Box>
-   <Box>
+   <Text>Profile</Text>
+   </Header>
+   <Component>
  
-   </Box>
+   </Component>
 
 </Drawer>
   )
