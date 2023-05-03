@@ -19,10 +19,12 @@ const Image = styled('img') ({
 
 
 const Conversation = ({user}) => {
-    const { setPerson } = useContext(AccountContext);
-  const getUser =()=> {
-setPerson(user);
-  } 
+    const { setPerson , account } = useContext(AccountContext);
+    
+    const getUser = async () => {
+        setPerson(user);
+        await setConversation({ senderId: account.sub, receiverId: user.sub });
+    }
   return (
    <Component onClick={() => getUser()}>
 
