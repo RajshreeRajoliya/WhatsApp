@@ -4,6 +4,8 @@ import EmptyChat from './chat/EmptyChat';
 import styled from '@emotion/styled';
 import Menu from './menu/MenuBar';
 import ChatBox from './chat/ChatBox';
+import { useContext } from 'react';
+import { AccountContext } from '../../context/AccountProvider';
 
 const Component = styled(Box)`
 display:flex
@@ -30,6 +32,7 @@ const dialogStyle = {
   overflow: "hidden",
 };
 function ChatDialog() {
+  const { person } = useContext(AccountContext);
   return (
     <Dialog open={true} PaperProps={{ sx: dialogStyle }} hideBackdrop={true} maxWidth={'md'}>
       <Component>
@@ -37,8 +40,8 @@ function ChatDialog() {
             <Menu/>
         </LeftComponent>
         <RightComponent>
-            {/* <EmptyChat/> */}
-            <ChatBox/>
+           
+            {Object.keys(person).length ? <ChatBox/> : <EmptyChat/>}
         </RightComponent>
       </Component>
     </Dialog>

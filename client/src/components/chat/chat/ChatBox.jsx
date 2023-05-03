@@ -10,7 +10,7 @@ const ChatBox = () => {
   return (
     <Box style={{height: '75%'}}>
       <ChatHeader person={person}/>
-      <Messages/>
+      <Messages person={person}/>
     </Box>
   )
 }
