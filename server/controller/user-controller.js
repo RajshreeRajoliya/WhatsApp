@@ -1,5 +1,6 @@
 import User from "../model/User.js";
 
+
 export const addUser = async (request, response) => {
     try {
         let exist = await User.findOne({ sub: request.body.sub });
@@ -13,15 +14,15 @@ export const addUser = async (request, response) => {
         await newUser.save();
       return response.status(200).json(newUser);
     } catch (error) {
-        response.status(500).json(error);
+       return response.status(500).json(error);
     }
 }
 
 export const getUser = async (request, response) => {
     try {
         const user = await User.find({});
-      return response.status(200).json(user);
+       return response.status(200).json(user);
     } catch (error) {
-        response.status(500).json(error.message);
+       return response.status(500).json(error);
     }
 }

@@ -3,7 +3,7 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import AccountProvider from './context/AccountProvider';
 function App() {
   const clientId =
-    "208810823523-omfdi2vvj6lm0i42uu0ke5d4t8pgfr7t.apps.googleusercontent.com";
+    "1006693224560-n7g1mrseqjiu4hvgru9f0skqpqj92njp.apps.googleusercontent.com";
   return (
     <GoogleOAuthProvider clientId={clientId}>
       <AccountProvider>
