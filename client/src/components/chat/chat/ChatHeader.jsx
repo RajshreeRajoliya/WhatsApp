@@ -1,6 +1,7 @@
 import React from 'react'
 import { Box, Typography, styled } from '@mui/material';
 import { Search, MoreVert } from '@mui/icons-material';
+import { defaultProfilePicture } from '../../../constants/data';
 
 const Header = styled(Box)`
     height: 44px;
@@ -17,18 +18,37 @@ const Image = styled('img')({
     borderRadius: '50%'
 });
 
+const Name = styled(Typography)`
+    margin-left: 12px !important;
+`;
+
+const Status = styled(Typography)`
+    font-size: 12px !important;
+    color: rgb(0, 0, 0, 0.6);
+    margin-left: 12px !important;
+`;
+
+const RightContainer = styled(Box)`
+    margin-left: auto;
+    & > svg {
+        padding: 8px;
+        font-size: 22px;
+        color: #000;
+    }
+`
+
 const ChatHeader = () => {
   return (
     <Header>
-    <Image src='' alt="display picture" />  
+    <Image src={defaultProfilePicture} alt="display picture" />  
     <Box>
-        <Typography>Name</Typography>
-        <Typography>Online Status</Typography>
+        <Name>Name</Name>
+        <Status>Online Status</Status>
     </Box>
-    <Box>
+    <RightContainer>
 <Search/>
 <MoreVert/>
-    </Box>
+    </RightContainer>
     </Header>
   )
 }
