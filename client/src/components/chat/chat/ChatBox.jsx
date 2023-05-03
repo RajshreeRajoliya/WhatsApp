@@ -1,10 +1,13 @@
 import React from 'react'
-
+import { Box } from '@mui/material';
+import ChatHeader from './ChatHeader';
+import Messages from './Messages';
 const ChatBox = () => {
   return (
-    <div>
-      
-    </div>
+    <Box>
+      <ChatHeader/>
+      <Messages/>
+    </Box>
   )
 }
 

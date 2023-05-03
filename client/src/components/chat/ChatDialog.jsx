@@ -3,6 +3,7 @@ import React from 'react'
 import EmptyChat from './chat/EmptyChat';
 import styled from '@emotion/styled';
 import Menu from './menu/MenuBar';
+import ChatBox from './chat/ChatBox';
 
 const Component = styled(Box)`
 display:flex
@@ -36,7 +37,8 @@ function ChatDialog() {
             <Menu/>
         </LeftComponent>
         <RightComponent>
-            <EmptyChat/>
+            {/* <EmptyChat/> */}
+            <ChatBox/>
         </RightComponent>
       </Component>
     </Dialog>
