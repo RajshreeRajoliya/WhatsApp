@@ -2,6 +2,7 @@ import React from 'react'
 import { styled, Box, Typography } from "@mui/material";
 import {useContext} from 'react';
 import { AccountContext } from '../../../context/AccountProvider';
+import { setConversation } from '../../../service/api';
 
 const Component = styled(Box)`
     height: 45px;
@@ -20,7 +21,7 @@ const Image = styled('img') ({
 
 const Conversation = ({user}) => {
     const { setPerson , account } = useContext(AccountContext);
-    
+
     const getUser = async () => {
         setPerson(user);
         await setConversation({ senderId: account.sub, receiverId: user.sub });
