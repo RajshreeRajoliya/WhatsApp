@@ -28,18 +28,19 @@ const Conversations = () => {
     }, []);
 
   return (
-    <Component>
+
+<Component>
 {
-    users.map(user => (
-        user.sub !== account.sub &&
-       <>
-       <Conversation user={user}/>
-       <StyledDivider/>
-       </>
-    ))
-}
-    </Component>
-  )
+    users.map((user) => (
+        user.sub !== account.sub && 
+            <>
+                <Conversation user={user} />
+                <StyledDivider />
+                </>
+                ))
+            }
+        </Component>
+    )
 }
 
-export default Conversations
+export default Conversations;

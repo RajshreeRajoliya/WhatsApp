@@ -1,48 +1,55 @@
-import React from 'react'
-import { MoreVert } from '@mui/icons-material';
-import { Menu, MenuItem, styled } from '@mui/material';
-import { useState} from 'react';
+import React, { useState } from "react";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import styled from "@emotion/styled";
 
 const MenuOption = styled(MenuItem)`
-    font-size: 14px
-    padding: 15px 60px 5px 24px;
-    color: #4A4A4A;
+  font-size: 14px;
+  padding: 15px 60px 5px 24px;
+  color: #4a4a4a;
 `;
 
-const HeaderMenu = ({setOpenDrawer}) => {
-    const [open, setOpen] = useState(false);
+const HeaderMenu = ({ setOpenDrawer }) => {
+  const [open, setOpen] = useState(null);
+  const handleClose = () => {
+    setOpen(null);
+  };
+  const handleClick = (e) => {
+    setOpen(e.currentTarget);
+  };
 
-    const handleClose = () => {
-        setOpen(null);
-    };
-
-    const handleClick = (event) => {
-        setOpen(event.currentTarget);
-    };   
   return (
-    <>
-      <MoreVert onClick={handleClick}/>
+    <div>
+      <MoreVertIcon onClick={handleClick} />
       <Menu
-      
-      anchorEl={open}
-              keepMounted
-             open={open}
-            onClose={handleClose}
-        getContentAnchorEl={null}
-            anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'center',
-                }}
-                transformOrigin={{
-                    vertical: 'top',
-                 horizontal: 'right',
-                }}
+        id="basic-menu"
+        anchorEl={open}
+        open={open}
+        onClose={handleClose}
+        getContentAnchorE1={null}
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "center",
+        }}
+        transformOrigin={{
+          vertical: "top",
+          horizontal: "right",
+        }}
       >
-        <MenuOption  onClick={() => { handleClose(); setOpenDrawer(true)}}>Profile</MenuOption>
-       
+        <MenuOption
+          onClick={() => {
+            setOpenDrawer(true);
+            handleClose();
+          }}
+        >
+          Profile
+        </MenuOption>
+        {/* <MenuItem onClick={handleClose}>My account</MenuItem>
+        <MenuItem onClick={handleClose}>Logout</MenuItem> */}
       </Menu>
-    </>
-  )
-}
+    </div>
+  );
+};
 
-export default HeaderMenu
+export default HeaderMenu;

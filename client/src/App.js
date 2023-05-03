@@ -1,16 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
-import Messengers from './components/Messengers';
+import Messenger from './components/Messenger';
+import { GoogleOAuthProvider } from "@react-oauth/google";
 import AccountProvider from './context/AccountProvider';
-import { GoogleOAuthProvider } from '@react-oauth/google';
-
 function App() {
-const clientId = '208810823523-omfdi2vvj6lm0i42uu0ke5d4t8pgfr7t.apps.googleusercontent.com';
+  const clientId =
+    "208810823523-omfdi2vvj6lm0i42uu0ke5d4t8pgfr7t.apps.googleusercontent.com";
   return (
     <GoogleOAuthProvider clientId={clientId}>
-     <AccountProvider>
-     <Messengers/>
-     </AccountProvider>
+      <AccountProvider>
+        <Messenger />
+      </AccountProvider>
     </GoogleOAuthProvider>
   );
 }
