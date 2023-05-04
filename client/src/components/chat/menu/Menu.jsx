@@ -1,19 +1,20 @@
-import React from 'react'
-import Header from './Header'
-import { Box } from '@mui/material';
-import Search from './Search';
-import Conversations from './Conversations';
-import { useState } from 'react';
+// import React from 'react'
 
-const Menu = () => {
-  // const [text, setText] = useState('');
-  return (
-   <Box>
-    <Search />
-    <Conversations />
-    <Conversations/>
-   </Box>
-  )
-}
+// import { Box } from '@mui/material';
+// import Search from './Search';
+// import Conversations from './Conversations';
 
-export default Menu
+// import { useState } from 'react';
+
+// const Menu = () => {
+//   // const [text, setText] = useState('');
+//   return (
+//    <Box>
+//     <Search setText={setText}/>
+//     <Conversations />
+//     <Conversations/>
+//    </Box>
+//   )
+// }
+
+// export default Menu
