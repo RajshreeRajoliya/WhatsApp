@@ -28,9 +28,12 @@ const Conversation = ({user}) => {
     }
   return (
    <Component onClick={() => getUser()}>
-
+{
+    console.log(user)
+}
                <Box>
                 <Image src={user.picture} alt="display picture" />
+                
             </Box>
 
 <Box>
