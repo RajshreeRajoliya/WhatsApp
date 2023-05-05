@@ -75,7 +75,14 @@ const HeaderMenu = () => {
             >
                 <MenuOption onClick={() => { handleClose(); toggleDrawer()}}>Profile</MenuOption>
                 <MenuOption onClick={() => { handleClose(); }}>
-               
+                {/* { showlogoutButton ?
+                    <Logout
+                        clientId={clientId}
+                        buttonText="Logout"
+                        onLogoutSuccess={onSignoutSuccess}
+                    >
+                    </Logout> : null
+                } */}
                 </MenuOption>
             </Menu>
             <InfoDrawer open={openDrawer} setOpen={setOpenDrawer} profile={true} />

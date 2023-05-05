@@ -1,11 +1,8 @@
 import { useContext, useState, useEffect } from 'react';
-
 import { Box } from '@mui/material';
-
 import { UserContext } from '../../../context/UserProvider';
 import { AccountContext } from '../../../context/AccountProvider';
 import { getConversation } from '../../../service/api';
-
 import ChatHeader from './ChatHeader';
 import Messages from './Messages';
 
