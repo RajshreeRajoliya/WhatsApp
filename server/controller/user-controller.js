@@ -1,4 +1,4 @@
-import User from "../model/User.js";
+import User from "../modal/User.js";
 
 
 export const addUser = async (request, response) => {
@@ -12,17 +12,17 @@ export const addUser = async (request, response) => {
 
         const newUser = new User(request.body);
         await newUser.save();
-      return response.status(200).json(newUser);
+        response.status(200).json(newUser);
     } catch (error) {
-       return response.status(500).json(error);
+        response.status(500).json(error);
     }
 }
 
 export const getUser = async (request, response) => {
     try {
         const user = await User.find({});
-       return response.status(200).json(user);
+        response.status(200).json(user);
     } catch (error) {
-       return response.status(500).json(error);
+        response.status(500).json(error);
     }
 }

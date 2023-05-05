@@ -1,7 +1,7 @@
-import React from 'react'
+import { useEffect } from 'react';
 import { EmojiEmotionsOutlined, AttachFile, Mic } from '@mui/icons-material';
 import { Box, styled, InputBase } from '@mui/material';
-
+import { uploadFile } from '../../../service/api';
 
 const Container = styled(Box)`
     height: 55px;
@@ -35,22 +35,53 @@ const ClipIcon = styled(AttachFile)`
     transform: 'rotate(40deg)'
 `;
 
-const Footer = ({sendText , setValue}) => {
 
-  return (
-    <Container>
-      <EmojiEmotionsOutlined/>
-      <ClipIcon/>
-      <Search>
-        <InputField
-             placeholder="Type a message"
-             onChange={(e)=>setValue(e.target.value)}
-             onKeyPress={(e)=>sendText(e)}
-        />
-      </Search>
-      <Mic/>
-    </Container>
-  )
+const Footer = ({ sendText, value, setValue, setFile, file, setImage }) => {
+
+    useEffect(() => {
+        const getImage = async () => {
+            if (file) {
+                const data = new FormData();
+                data.append("name", file.name);
+                data.append("file", file);
+
+               let response = await uploadFile(data);
+                setImage(response.data);
+            }
+        }
+        getImage();
+    }, [file])
+
+    const onFileChange = (e) => {
+        setValue(e.target.files[0].name);
+        setFile(e.target.files[0]);
+    }
+
+    return (
+        <Container>
+            <EmojiEmotionsOutlined/>
+            <label htmlFor="fileInput">
+                <ClipIcon />
+            </label>
+            <input
+                type='file'
+                id="fileInput"
+                style={{ display: 'none' }}
+                onChange={(e) => onFileChange(e)}
+            />
+
+            <Search>
+                <InputField
+                    placeholder="Type a message"
+                    inputProps={{ 'aria-label': 'search' }}
+                    onChange={(e) => setValue(e.target.value)}
+                    onKeyPress={(e) => sendText(e)}
+                    value={value}
+                />
+            </Search>
+            <Mic />
+        </Container>
+    )
 }
 
-export default Footer
+export default Footer;

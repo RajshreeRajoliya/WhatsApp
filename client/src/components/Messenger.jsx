@@ -1,45 +1,49 @@
-import React from "react";
-import { AppBar, Box, Toolbar } from "@mui/material";
-import LoginDialog from "./account/LoginDialog";
-import ChatDialog from "./chat/ChatDialog";
-import styled from "@emotion/styled";
-import { useContext } from "react";
-import { AccountContext } from "../context/AccountProvider";
-const Componenet = styled(Box)`
-  height: 100vh;
-  background: #dcdcdc;
+import { useContext } from 'react';
+import { AppBar, Toolbar, styled, Box } from '@mui/material';
+import { AccountContext } from '../context/AccountProvider';
+import ChatDialog from './chat/ChatDialog';
+import LoginDialog from './account/LoginDialog';
+
+const Component = styled(Box)`
+    height: 100vh;
+    background: #DCDCDC;
 `;
-const LoginHeader = styled(AppBar)`
-  height: 200px;
-  background-color: #00bfa5;
-  box-shoadow: none;
-`;
+
 const Header = styled(AppBar)`
-  height: 120px;
-  background-color: #00A884;
-  box-shoadow: none;
+    background-color: #00A884;
+    height: 125px;
+    box-shadow: none;
 `;
+    
+const LoginHeader = styled(AppBar)`
+    background: #00bfa5;
+    height: 200px;
+    box-shadow: none;
+`;
+
 const Messenger = () => {
-  const {account}=useContext(AccountContext);
-  return (
-    <Componenet>
-      {account ? (
-        <>
-          <Header>
-            <Toolbar></Toolbar>
-          </Header>
-          <ChatDialog />
-        </>
-      ) : (
-        <>
-          <LoginHeader>
-            <Toolbar></Toolbar>
-          </LoginHeader>
-          <LoginDialog />
-        </>
-      )}
-    </Componenet>
-  );
-};
+    const { account } = useContext(AccountContext);
+    
+    return (
+        <Component>
+            {
+                account ? 
+                <>
+                    <Header>
+                        <Toolbar></Toolbar>
+                    </Header>
+                    <ChatDialog />
+                </>
+                :
+                <>
+                    <LoginHeader>
+                        <Toolbar></Toolbar>
+                    </LoginHeader>
+                    <LoginDialog />
+                </>
+            }
+        </Component>
+    )
+}
 
 export default Messenger;
